@@ -1,6 +1,7 @@
 // config/appwriteClient.js
 import dotenv from 'dotenv';
-dotenv.config();
+dotenv.config({ path: './database.env' });
+
 
 import { Client, Databases, Account } from 'node-appwrite';
 
