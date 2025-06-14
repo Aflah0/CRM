@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 
 import userRoutes from './routes/user.js';
 import enquiriesRoutes from './routes/enquiries.js';
+import customerRoutes from "./routes/customer.js";
 
 dotenv.config();
 
@@ -16,6 +17,7 @@ app.use(cookieParser());
 // Routes
 app.use('/user', userRoutes);
 app.use('/enquiries', enquiriesRoutes);
+app.use("/customer", customerRoutes);
 
 app.get('/', (req, res) => {
   res.send('Welcome to the Multi-Tenant Auth App with Appwrite');
