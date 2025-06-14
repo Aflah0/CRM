@@ -1,0 +1,160 @@
+{
+  "info": {
+    "_postman_id": "12345678-abcd-efgh-ijkl-123456789abc",
+    "name": "CRM-Enquiry Management",
+    "description": "Node.js + Appwrite multi-tenant CRM with auto-assigned createdBy/deletedBy/updatedBy",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Login User",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json", "type": "text" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"identifier\": \"admin@gmail.com\",\n  \"password\": \"1234\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/user/login",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["user", "login"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Current User (Me)",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:3000/user/me",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["user", "me"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Enquiry",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json", "type": "text" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"enqId\": \"ENQ001\",\n  \"productName\": \"Laptop\",\n  \"customerName\": \"Alice\",\n  \"quantity\": 5\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/enquiries/new",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["enquiries","new"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "View All Enquiries (Admin/Moderator)",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:3000/enquiries/list",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["enquiries","list"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Edit Enquiry",
+      "request": {
+        "method": "PUT",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"quantity\": 10\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/enquiries/update/:id",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["enquiries", "update", ":id"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Enquiry (Move to Trash)",
+      "request": {
+        "method": "DELETE",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"deletionNotes\": \"Customer not interested\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/enquiries/delete/:id",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["enquiries", "delete", ":id"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "View Enquiry Trash",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:3000/enquiries/trash",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["enquiries", "trash"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Recover Enquiry",
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "http://localhost:3000/enquiries/recover/:trashId",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["enquiries", "recover", ":trashId"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Permanent Delete Enquiry",
+      "request": {
+        "method": "DELETE",
+        "url": {
+          "raw": "http://localhost:3000/enquiries/permanentdelete/:trashId",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["enquiries", "permanentdelete", ":trashId"]
+        }
+      },
+      "response": []
+    }
+  ]
+}
