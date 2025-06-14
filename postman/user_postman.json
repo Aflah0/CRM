@@ -1,0 +1,136 @@
+{
+  "info": {
+    "_postman_id": "12345678-abcd-efgh-ijkl-123456789abc",
+    "name": "CRM-Auth",
+    "description": "Node.js + Appwrite multi-tenant auth with roles: admin, moderator, employee",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Signup User",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json", "type": "text" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Aflah\",\n  \"email\": \"admin@gmail.com\",\n  \"username\": \"adminaflah\",\n  \"password\": \"1234\",\n  \"role\": \"admin\",\n  \"organizationId\": \"org123\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/user/signup",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["user", "signup"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Login User",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json", "type": "text" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"identifier\": \"admin@gmail.com\",\n  \"password\": \"1234\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/user/login",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["user", "login"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Current User (Me)",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:3000/user/me",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["user", "me"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete User",
+      "request": {
+        "method": "DELETE",
+        "url": {
+          "raw": "http://localhost:3000/user/USER_ID_HERE",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["user","delete", "USER_ID_HERE"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "List All Users",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:3000/user/users",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["user", "users"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update User",
+      "request": {
+        "method": "PUT",
+        "header": [
+          { "key": "Content-Type", "value": "application/json", "type": "text" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"password\": \"12345\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/user/user/USER_ID_HERE",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["user","update", "USER_ID_HERE"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Freeze/Unfreeze User",
+      "request": {
+        "method": "PUT",
+        "header": [
+          { "key": "Content-Type", "value": "application/json", "type": "text" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"freeze\": true\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/user/user/freeze/USER_ID_HERE",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["user", "freeze", "USER_ID_HERE"]
+        }
+      },
+      "response": []
+    }
+  ]
+}
