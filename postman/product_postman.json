@@ -1,0 +1,272 @@
+{
+    "info": {
+        "_postman_id": "efgh5678-prod-collection-uuid",
+        "name": "CRM-Product Management",
+        "description": "Product module for CRM using Node.js + Appwrite",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Login User",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"identifier\": \"admin@gmail.com\",\n  \"password\": \"1234\"\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:3000/user/login",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "user",
+                        "login"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Get Current User (Me)",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:3000/user/me",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "user",
+                        "me"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Create Product",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer your_auth_token_here",
+                        "type": "text"
+                    },
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"name\": \"Laptop\",\n  \"category\": \"Electronics\",\n  \"price\": 75000,\n  \"suppliers\": \"HP Inc.\",\n  \"quantity\": 10,\n  \"stock\": true,\n  \"description\": \"High-end laptop with i7 processor.\"\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:3000/product/new",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "product",
+                        "new"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "List All Products",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer your_auth_token_here",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "http://localhost:3000/product/list",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "product",
+                        "list"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Update Product",
+            "request": {
+                "method": "PUT",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer your_auth_token_here",
+                        "type": "text"
+                    },
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"price\": 70000,\n  \"stock\": false,\n  \"quantity\": 5\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:3000/product/update/:id",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "product",
+                        "update",
+                        ":id"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Delete Product (Move to Trash)",
+            "request": {
+                "method": "DELETE",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer your_auth_token_here",
+                        "type": "text"
+                    },
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"deletionNotes\": \"Outdated product\"\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:3000/product/delete/:id",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "product",
+                        "delete",
+                        ":id"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "View Product Trash",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer your_auth_token_here",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "http://localhost:3000/product/trash",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "product",
+                        "trash"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Recover Product",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer your_auth_token_here",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "http://localhost:3000/product/recover/:trashId",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "product",
+                        "recover",
+                        ":trashId"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Permanent Delete Product",
+            "request": {
+                "method": "DELETE",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer your_auth_token_here",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "http://localhost:3000/product/permanentdelete/:trashId",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "product",
+                        "permanentdelete",
+                        ":trashId"
+                    ]
+                }
+            },
+            "response": []
+        }
+    ]
+}
